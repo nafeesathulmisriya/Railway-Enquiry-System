@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train List</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- Inline CSS for setting the background image -->
+    <style>
+        body {
+            background-image: url("{% static 'images/bg8.jpg' %}");
+            background-size: 100% 100%;
+            background-size: cover; /* Makes the background cover the whole screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat;
+            width: 100%; /* Ensures the body takes the full width */
+            height: 100vh;
+            font-family: Arial, sans-serif; /* Optional font styling */
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: black; /* Adjust text color for visibility */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional shadow for text */
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Available Trains</center></h1>
+    <table border="1">
+        <tr>
+            <th>Train Name</th>
+            <th>Train Number</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <!--<th>Images</th>-->
+        </tr>
+        {% for train in trains %}
+        <tr>
+            <td>{{ train.name }}</td>
+            <td>{{ train.number }}</td>
+            <td>{{ train.source }}</td>
+            <td>{{ train.destination }}</td>
+            <td>{{ train.departure_time }}</td>
+            <td>{{ train.arrival_time }}</td>
+           <!--<td><img src="{{ train.image.url }}" width="200"></td>-->
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No trains available</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Signup</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+                margin-top: 20px;
+                font-size: 24px;
+            }
+            .form-container {
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto;
+                background-color: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            td {
+                padding: 10px;
+                vertical-align: top;
+            }
+            label {
+                font-weight: bold;
+            }
+            input[type="text"], input[type="email"], input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            button {
+                background-color: #FF0000;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+            }
+            button:hover {
+                background-color: #FF0000;
+            }
+            .alert {
+                margin: 10px auto;
+                width: 90%;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+            .alert-dismissible {
+                position: relative;
+            }
+            .close {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        
+      {% comment %} {% for message in messages %}
+       <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %} {% endcomment %}
+
+        <div class="form-container">
+            <h1>Signup</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><label for="username">Username</label></td>
+                        <td><input type="text" id="username" name="username" placeholder="Create a username" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fname">First Name</label></td>
+                        <td><input type="text" id="fname" name="fname" placeholder="Enter your first name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lname">Last Name</label></td>
+                        <td><input type="text" id="lname" name="lname" placeholder="Enter your last name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input type="email" id="email" name="email" placeholder="Enter your email address" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pass1">Password</label></td>
+                        <td><input type="password" id="pass1" name="pass1" placeholder="Enter password" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pass2">Confirm Password</label></td>
+                        <td><input type="password" id="pass2" name="pass2" placeholder="Confirm password" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Register</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
